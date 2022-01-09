@@ -344,3 +344,164 @@
 //   }
 // }
 // console.log("biggestNumber:", biggestNumber);
+
+// * 22. Дополни код функции createArrayOfNumbers(min, max) так, чтобы она возвращала массив всех целых чисел от значения min до max.
+
+// function createArrayOfNumbers(min, max) {
+//   const numbers = [];
+//   for (let i = min; i <= max; i += 1) {
+//     numbers.push(i);
+//   }
+//   return numbers;
+// }
+
+// console.log(createArrayOfNumbers(14, 17));
+
+// * 23. Напиши функцию filterArray(numbers, value), которая принимает массив чисел (параметр numbers) и возвращает новый массив, в котором будут только те элементы массива numbers, которые больше чем значение параметра value (число).
+
+// function filterArray(numbers, value) {
+//   const newArray = [];
+//   for (let i = 0; i < numbers.length; i += 1) {
+//     if (numbers[i] > value) {
+//       newArray.push(numbers[i]);
+//     }
+//   }
+//   return newArray;
+// }
+
+// console.log(filterArray([12, 24, 8, 41, 76], 38));
+// console.log(filterArray([12, 24, 8, 41, 76], 20));
+
+// * 24. Функция checkFruit(fruit) принимает строку с названием фрукта (параметр fruit), и проверяет есть ли такой фрукт в массиве fruits. Дополни код функции так, что если: фрукт есть в массиве, то функция возвращает true; фрукта нет в массиве, то функция возвращает false.
+
+// function checkFruit(fruit) {
+//   const fruits = ["apple", "plum", "pear", "orange"];
+
+//   return fruits.includes(fruit);
+// }
+
+// console.log(checkFruit("plum"));
+
+// * 25. Общими элементами массивов называют те элементы, которые присутствуют во всех массивах. Например, в двух массивах [1, 3, 5] и [0, 8, 5, 3] общими будут числа 3 и 5, т.к. они присутствуют в обоих исходных массивах. А числа 0, 1 и 8 присутствуют только в одном из массивов. Напиши функцию getCommonElements(array1, array2) которая получает два массива произвольной длины в параметры array1 и array2, и возвращает новый массив, состоящий из тех элементов, которые присутствуют в обоих исходных массивах.
+
+// function getCommonElements(array1, array2) {
+//   const newArray = [];
+//   for (let i = 0; i < array1.length; i += 1) {
+//     if (array2.includes(array1[i])) {
+//       newArray.push(array1[i]);
+//     }
+//   }
+//   return newArray;
+// }
+
+// console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
+// console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
+// console.log(getCommonElements([1, 2, 3], [10, 20, 30]));
+
+// * 26. Выполни рефакторинг кода функции calculateTotalPrice(order) заменив цикл for на for...of.
+
+// function calculateTotalPrice(order) {
+//   let total = 0;
+
+//   for (const item of order) {
+//     total += item;
+//   }
+
+//   return total;
+// }
+
+// console.log(calculateTotalPrice([412, 371, 94, 63, 176]));
+
+// * 27. Выполни рефакторинг функции filterArray(numbers, value) заменив цикл for на for...of.
+
+// function filterArray(numbers, value) {
+//   const filteredNumbers = [];
+
+//   for (const number of numbers) {
+//     const num = number;
+
+//     if (num > value) {
+//       filteredNumbers.push(num);
+//     }
+//   }
+
+//   return filteredNumbers;
+// }
+
+// console.log(filterArray([12, 24, 8, 41, 76], 38));
+
+// * 28. Дополни выражения остатка от деления так, чтобы код проходил тесты. Объявлена переменная a Значение переменной a это число 0 Объявлена переменная b Значение переменной b это число 1 Объявлена переменная c Значение переменной c это число 3 Объявлена переменная d Значение переменной d это число 5 Объявлена переменная e Значение переменной e это число 2
+
+// const a = 3 % 3;
+// const b = 4 % 3;
+// const c = 11 % 4;
+// const d = 12 % 7;
+// const e = 8 % 6;
+
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// console.log(d);
+// console.log(e);
+
+// * 29. Напиши функцию getEvenNumbers(start, end) которая возвращает массив всех чётных чисел от start до end. Чётным считается число которое делится на 2 без остатка (10 % 2 === 0).
+
+// function getEvenNumbers(start, end) {
+//   const newArray = [];
+//   for (let i = start; i <= end; i += 1) {
+//     if (i % 2 === 0) {
+//       newArray.push(i);
+//     }
+//   }
+//   return newArray;
+// }
+
+// console.log(getEvenNumbers(3, 11));
+// console.log(getEvenNumbers(8, 8));
+// console.log(getEvenNumbers(6, 12));
+
+// * 30. Дополни код так, чтобы в переменную number записывалось первое число от start до end, которое делится на 5 без остатка.
+
+// const start = 6;
+// const end = 27;
+// let number;
+
+// for (let i = start; i < end; i += 1) {
+//   if (i % 5 === 0) {
+//     number = i;
+//     break;
+//   }
+// }
+
+// console.log(number);
+
+// * 31. Выполни рефакторинг функции findNumber(start, end, divisor) так, чтобы она: возвращала первое число от start до end, которое делится на divisor без остатка не использовала оператор break не использовала переменную number
+
+// function findNumber(start, end, divisor) {
+//   let number;
+
+//   for (let i = start; i < end; i += 1) {
+//     if (i % divisor === 0) {
+//       number = i;
+//       return i;
+//     }
+//   }
+// }
+
+// console.log(findNumber(8, 17, 3));
+
+// * 32. Напиши функцию includes(array, value), которая делает тоже самое, что и метод массива массив.includes(значение) - проверяет, есть ли в массиве array значение value, возвращая true если есть и false в противном случае. При выполнении этой задачи в теле функции includes() нельзя использовать метод массив.includes(значение).
+
+// function includes(array, value) {
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] === value) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(includes([1, 2, 3, 4, 5], 3));
+// console.log(
+//   includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Uranus")
+// );
