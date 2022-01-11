@@ -1,5 +1,7 @@
 // ! Модуль 2: Функции и массивы
 
+// ! Лекция 2-1
+
 /*
  * Напиши скрипт поиска самого маленького числа в массиве. Код должен работать для любого массива чисел. Используй цикл для решения задачи.
  */
@@ -67,6 +69,170 @@
 // console.log(filterNumbers([1, 2, 3, 4, 5], 10, 15, 2, 3, 8)); // [2, 3]
 // console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15)); // [30, 15]
 // console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 200, 64)); // [200]
+
+// ! Лекция 2-2
+
+// * Мутирование исходного массива - изменение массива в ячейке его памяти
+
+// function fun(array) {
+//   for (let i = 0; i < array.length; i += 1) {
+//     console.log(array[i]);
+//     array[i] *= 2;
+//   }
+//   console.log(array);
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// fun(numbers);
+// console.log(numbers);
+
+// * 1 - Напиши функцию calcBMI(weight, height) которая рассчитывает и возвращает индекс массы тела человека. Для этого необходимо разделить вес в килограммах на квадрат высоты человека в метрах. * Вес и высота будут специально переданы как строки. Нецелые числа могут быть заданы в виде 24.7 или 24,7, то есть в качестве разделителя дробной части может быть запятая. Индекс массы тела необходимо округлить до одной цифры после запятой;
+
+// function calcBMI(weight, height) {
+//   const numericWeight = Number(weight.replace(",", "."));
+//   const numericHeight = Number(height.replace(",", "."));
+
+//   const index = numericWeight / Math.pow(numericHeight, 2);
+
+//   return index.toFixed(1);
+// }
+
+// const bmi = calcBMI("88,3", "1,75");
+// console.log("Индекс массы тела =", bmi);
+
+// * 2 - Меньшее из чисел. Напиши функцию min(a,b), которая возвращает меньшее из чисел a и b.
+
+// function min(a, b) {
+//   if (a > b) {
+//     return b;
+//   }
+//   if (a < b) {
+//     return a;
+//   }
+//   if (a === b) {
+//     return "Число а равно числу b";
+//   }
+// }
+
+// console.log(min(2, 5)); // 2
+// console.log(min(3, -1)); // -1
+// console.log(min(1, 1)); // 1
+
+// * 3 - Площадь прямоугольника. Напиши функцию getRectArea(dimensions) для вычисления площади прямоугольника со сторонами, значения которых будут переданы в параметр dimensions в виде строки. Значения гарантированно разделены пробелом.
+
+// function getRectArea(dimensions) {
+//   const rectSides = dimensions.split(" ");
+//   const rectArea = Number(rectSides[0]) * Number(rectSides[1]);
+//   return rectArea;
+// }
+
+// console.log(getRectArea("8 11"));
+
+// * 4 - Напиши функцию logItems(items), которая получает массив и использует цикл for, который для каждого элемента массива будет выводить в консоль сообщение в формате <номер элемента> - <значение элемента>. Нумерация элементов должна начинаться с 1. Например для первого элемента массива ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено 1 - Mango, а для индекса 2 выведет 3 - Ajax.
+
+// function logItems(items) {
+//   let message;
+//   for (let i = 0; i < items.length; i += 1) {
+//     message = `${[i + 1]} - ${items[i]}`;
+//     console.log(message);
+//   }
+// }
+
+// logItems(["Mango", "Poly", "Ajax"]);
+// logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
+
+// * 5 - Логирование контактов. Напиши функцию printContactsInfo(names, phones) которая выводит в консоль имя и телефонный номер пользователя. В параметры names и phones будут переданы строки имен и телефонных номеров, разделенные запятыми. Порядковый номер имен и телефонов в строках указывают на соответствие. Количество имен и телефонов гарантированно одинаковое
+
+// function printContactsInfo(names, phones) {
+//   const arrayNames = names.split(",");
+//   const arrayPhones = phones.split(",");
+
+//   let message;
+//   for (let i = 0; i < arrayNames.length; i += 1) {
+//     message = `${[i + 1]}: ${arrayNames[i]} - ${arrayPhones[i]}`;
+//     console.log(message);
+//   }
+// }
+
+// printContactsInfo(
+//   "Jacob,William,Solomon,Artemis",
+//   "89001234567,89001112233,890055566377,890055566300"
+// );
+
+// * 7 - Среднее значение. Напишите функцию calAverage() которая принимает произвольное кол-во аргументов и возвращает их среднее значение. Все аргументы будут только числами.
+
+// function calAverage() {
+//   let sumOfNumbers = 0;
+//   let average;
+
+//   for (const argument of arguments) {
+//     sumOfNumbers += argument;
+//   }
+
+//   average = sumOfNumbers / arguments.length;
+
+//   return average;
+// }
+
+// console.log(calAverage(1, 2, 3, 4)); // 2.5
+// console.log(calAverage(14, 8, 2)); // 8
+// console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
+
+// * 8 - Форматирование времени. Напиши функцию formatTime(minutes) которая переведёт значение minutes (количество минут) в строку в формате часов и минут HH:MM.
+
+// function formatTime(minutes) {
+//   const hours = Math.floor(minutes / 60);
+//   minutes = minutes % 60;
+
+//   const doubleDigitHours = String(hours).padStart(2, 0);
+//   const doubleDigitMinutes = String(minutes).padStart(2, 0);
+
+//   return `${doubleDigitHours}:${doubleDigitMinutes}`;
+// }
+
+// console.log(formatTime(70)); // "01:10"
+// console.log(formatTime(450)); // "07:30"
+// console.log(formatTime(1441)); // "24:01"
+
+// * 9 - Коллекция курсов (includes, indexOf, push и т. д.). Напишите функции для работы с коллекцией обучающих курсов courses: * addCourse(name) - добавляет курс в конец коллекции * removeCourse(name) - удаляет курс из коллекции * updateCourse(oldName, newName) - изменяет имя на новое
+
+const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
+
+// function addCourse(course) {
+//   if (courses.includes(course)) {
+//     return "У вас уже есть такой курс";
+//   }
+//   const additionalCourse = courses.push(course);
+//   return courses;
+// }
+
+// console.log(addCourse("Express"));
+// console.log(addCourse("CSS"));
+
+// function removeCourse(course) {
+//   if (courses.includes(course)) {
+//     const coursePosition = courses.indexOf(course);
+//     courses.splice(coursePosition, 1);
+//     return courses;
+//   }
+//   return "Курс с таким именем не найден";
+// }
+
+// console.log(removeCourse("React"));
+// console.log(removeCourse("Vue"));
+
+// function updateCourse(oldCourse, newCourse) {
+//   if (courses.includes(oldCourse)) {
+//     const coursePosition = courses.indexOf(oldCourse);
+//     courses.splice(coursePosition, 1, newCourse);
+//     return courses;
+//   }
+//   return "Курс с таким именем не найден";
+// }
+
+// console.log(updateCourse("React", "NestJS"));
+
+// ! Автопроверки
 
 // * 1. Запиши условие в инструкции if так, чтобы функция работала правильно.
 
