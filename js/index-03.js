@@ -221,122 +221,183 @@ const friends = [
  * Можно положить либо снять деньги со счета.
  */
 
-const Transaction = {
-  DEPOSIT: 'deposit',
-  WITHDRAW: 'withdraw',
-};
+// const Transaction = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// };
 
 /*
  * Каждая транзакция это объект со свойствами: id, type и amount
  */
 
-const account = {
-  // Текущий баланс счета
-  balance: 0,
+// const account = {
+//   // Текущий баланс счета
+//   balance: 0,
 
-  // История транзакций
-  transactions: [],
+//   // История транзакций
+//   transactions: [],
 
-  /*
-   * Метод создает и возвращает объект транзакции.
-   * Принимает сумму и тип транзакции.
-   */
-  createTransaction(amount, type) {
-    return {
-      id: this.transactions.length + 1,
-      amount,
-      type,
-    };
-  },
+/*
+ * Метод создает и возвращает объект транзакции.
+ * Принимает сумму и тип транзакции.
+ */
+// createTransaction(amount, type) {
+//   return {
+//     id: this.transactions.length + 1,
+//     amount,
+//     type,
+//   };
+// },
 
-  /*
-   * Метод отвечающий за добавление суммы к балансу.
-   * Принимает сумму транзакции.
-   * Вызывает createTransaction для создания объекта транзакции
-   * после чего добавляет его в историю транзакций
-   */
-  deposit(amount) {
-    this.balance += amount;
+/*
+ * Метод отвечающий за добавление суммы к балансу.
+ * Принимает сумму транзакции.
+ * Вызывает createTransaction для создания объекта транзакции
+ * после чего добавляет его в историю транзакций
+ */
+// deposit(amount) {
+//   this.balance += amount;
 
-    const newTransaction = this.createTransaction(amount, Transaction.DEPOSIT);
+//   const newTransaction = this.createTransaction(amount, Transaction.DEPOSIT);
 
-    this.transactions.push(newTransaction);
+//   this.transactions.push(newTransaction);
 
-    return `Пополнение прошло успешно на сумму ${amount}$.`;
-  },
+//   return `Пополнение прошло успешно на сумму ${amount}$.`;
+// },
 
-  /*
-   * Метод отвечающий за снятие суммы с баланса.
-   * Принимает сумму транзакции.
-   * Вызывает createTransaction для создания объекта транзакции
-   * после чего добавляет его в историю транзакций.
-   *
-   * Если amount больше чем текущий баланс, выводи сообщение
-   * о том, что снятие такой суммы не возможно, недостаточно средств.
-   */
-  withdraw(amount) {
-    if (amount > this.balance) {
-      return 'Недостаточно средств на счету!';
-    }
+/*
+ * Метод отвечающий за снятие суммы с баланса.
+ * Принимает сумму транзакции.
+ * Вызывает createTransaction для создания объекта транзакции
+ * после чего добавляет его в историю транзакций.
+ *
+ * Если amount больше чем текущий баланс, выводи сообщение
+ * о том, что снятие такой суммы не возможно, недостаточно средств.
+ */
+// withdraw(amount) {
+//   if (amount > this.balance) {
+//     return 'Недостаточно средств на счету!';
+//   }
 
-    this.balance -= amount;
+//   this.balance -= amount;
 
-    const newTransaction = this.createTransaction(amount, Transaction.WITHDRAW);
+//   const newTransaction = this.createTransaction(amount, Transaction.WITHDRAW);
 
-    this.transactions.push(newTransaction);
+//   this.transactions.push(newTransaction);
 
-    return `Операция прошла успешно на сумму ${amount}$.`;
-  },
+//   return `Операция прошла успешно на сумму ${amount}$.`;
+// },
 
-  /*
-   * Метод возвращает текущий баланс
-   */
-  getBalance() {
-    return this.balance;
-  },
+/*
+ * Метод возвращает текущий баланс
+ */
+// getBalance() {
+//   return this.balance;
+// },
 
-  /*
-   * Метод ищет и возвращает объект транзакции по id
-   */
-  getTransactionDetails(id) {
-    for (const object of this.transactions) {
-      if (object.id === id) {
-        return object;
-      }
-    }
-    return 'такой операции нет';
-  },
+/*
+ * Метод ищет и возвращает объект транзакции по id
+ */
+// getTransactionDetails(id) {
+//   for (const object of this.transactions) {
+//     if (object.id === id) {
+//       return object;
+//     }
+//   }
+//   return 'такой операции нет';
+// },
 
-  /*
-   * Метод возвращает количество средств
-   * определенного типа транзакции из всей истории транзакций
-   */
-  getTransactionTotal(type) {
-    let total = 0;
+/*
+ * Метод возвращает количество средств
+ * определенного типа транзакции из всей истории транзакций
+ */
+//   getTransactionTotal(type) {
+//     let total = 0;
 
-    for (const object of this.transactions) {
-      if (object.type === type) {
-        total += object.amount;
-      }
-    }
+//     for (const object of this.transactions) {
+//       if (object.type === type) {
+//         total += object.amount;
+//       }
+//     }
 
-    return `Сумма транзакций ${type} - ${total}`;
-  },
-};
+//     return `Сумма транзакций ${type} - ${total}`;
+//   },
+// };
 
-console.log(account.deposit(500));
-console.log(account.deposit(100));
-console.log(account.deposit(50));
+// console.log(account.deposit(500));
+// console.log(account.deposit(100));
+// console.log(account.deposit(50));
 
-console.log(account.withdraw(150));
-console.log(account.withdraw(50));
-console.log(account.withdraw(500));
+// console.log(account.withdraw(150));
+// console.log(account.withdraw(50));
+// console.log(account.withdraw(500));
 
 // console.log(account.transactions);
 
 // console.table(account.getTransactionDetails(10));
 
-console.log(account.getTransactionTotal(Transaction.WITHDRAW));
-console.log(account.getTransactionTotal(Transaction.DEPOSIT));
+// console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+// console.log(account.getTransactionTotal(Transaction.DEPOSIT));
 
-console.log(account.getBalance());
+// console.log(account.getBalance());
+
+// ! 3-1 Деструктуризация
+
+// const user = {
+//   name: 'Jacques Gluke',
+//   tag: 'jgluke',
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
+
+// const {
+//   name,
+//   tag,
+//   stats: { followers, views: userViews, likes: userLikes = 0 },
+// } = user;
+
+// console.log(name); // Jacques Gluke
+// console.log(tag); // jgluke
+// console.log(followers); // 5603
+// console.log(userViews); // 4827
+// console.log(userLikes); // 1308
+
+// * Найти самое большое число в массиве
+
+// const numbers = [1, 2, 300, 45, 5, 699, 7, 80, 9];
+
+// const maxNumber = Math.max(...numbers);
+// console.log(maxNumber);
+
+const authors = {
+  kiwi: 4,
+  poly: 7,
+  ajax: 9,
+  mango: 6,
+};
+
+const entries = Object.entries(authors);
+
+// console.log(entries);
+
+for (const [name, rating] of entries) {
+  // // ур2;
+  // const [name, rating] = entry;
+  // //
+  // // ур1;
+  // const name = entry[0];
+  // const rating = entry[1];
+  // console.log(name, rating);
+}
+
+// * Пример с копирование примитивов (распыление):
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [...arr1];
+
+console.log(arr1);
+console.log(arr2);
+console.log(arr1 === arr2);
