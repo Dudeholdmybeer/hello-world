@@ -372,32 +372,183 @@ const friends = [
 // const maxNumber = Math.max(...numbers);
 // console.log(maxNumber);
 
-const authors = {
-  kiwi: 4,
-  poly: 7,
-  ajax: 9,
-  mango: 6,
-};
-
-const entries = Object.entries(authors);
-
-// console.log(entries);
-
-for (const [name, rating] of entries) {
-  // // ур2;
-  // const [name, rating] = entry;
-  // //
-  // // ур1;
-  // const name = entry[0];
-  // const rating = entry[1];
-  // console.log(name, rating);
-}
-
 // * Пример с копирование примитивов (распыление):
 
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [...arr1];
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [...arr1];
 
-console.log(arr1);
-console.log(arr2);
-console.log(arr1 === arr2);
+// console.log(arr1);
+// console.log(arr2);
+// console.log(arr1 === arr2);
+
+// * Задача 1 - перепиши функцию так, чтобы она принимала один объект параметров, вместо набора независимых аргументов.
+
+// function calcBMI({ weight, height }) {
+// const { weight, height } = params;
+
+//   const numericWeight = Number(weight.replace(',', '.'));
+//   const numericHeight = Number(height.replace(',', '.'));
+
+//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
+// }
+
+// Было
+// console.log(calcBMI('88,3', '1.75'));
+// console.log(calcBMI('68,3', '1.65'));
+// console.log(calcBMI('118,3', '1.95'));
+
+// Ожидается
+// console.log(
+//   calcBMI({
+//     weight: '88,3',
+//     height: '1.75',
+//   })
+// );
+// console.log(
+//   calcBMI({
+//     weight: '68,3',
+//     height: '1.65',
+//   })
+// );
+// console.log(
+//   calcBMI({
+//     weight: '118,3',
+//     height: '1.95',
+//   })
+// );
+
+// * Задача 2 - перепиши функцию так, чтобы она принимала один объект параметров, вместо набора независимых аргументов.
+
+// function printContactsInfo({ names, phones }) {
+// const { names, phones } = params;
+
+//   const arrayNames = names.split(',');
+//   const arrayPhones = phones.split(',');
+
+//   let message;
+//   for (let i = 0; i < arrayNames.length; i += 1) {
+//     message = `${[i + 1]}: ${arrayNames[i]} - ${arrayPhones[i]}`;
+//     console.log(message);
+//   }
+// }
+
+// Было
+// printContactsInfo(
+//   'Jacob,William,Solomon,Artemis',
+//   '89001234567,89001112233,890055566377,890055566300'
+// );
+
+// Ожидается
+// printContactsInfo({
+//   names: 'Jacob,William,Solomon,Artemis',
+//   phones: '89001234567,89001112233,890055566377,890055566300',
+// });
+
+// * Задача 3 - Глубокая деструктуризация - Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора независимых аргументов.
+
+// function getBotReport({ companyName, stock }) {
+//   let total = 0;
+
+//   for (const value of Object.values(stock)) {
+//     total += value;
+//   }
+//   return `${companyName} has ${total} elements in stock`;
+// }
+
+// Было
+// console.log(getBotReport('Cyberdyne Systems', 150, 50));
+
+// Ожидается
+// console.log(
+//   getBotReport({
+//     companyName: 'Cyberdyne Systems',
+//     stock: {
+//       repair: 150,
+//       defence: 50,
+//     },
+//   })
+// );
+
+// console.log(
+//   getBotReport({
+//     companyName: 'Babushka',
+//     stock: {
+//       tomato: 150,
+//       eggs: 50,
+//       meat: 200,
+//     },
+//   })
+// );
+
+// * Задача 4 - дополни функцию createContact(partialContact) так, чтобы она возвращала новый объект контакта с добавленными свойствами id и createdAt, а также list со значением "default" если в partialContact нет такого свойства.
+
+// function createContact(partialContact) {
+//   return {
+//     list: 'default',
+//     ...partialContact,
+//     id: generateId(),
+//     createdAt: Date.now(),
+//   };
+// }
+
+// console.log(
+//   createContact({
+//     name: 'Mango',
+//     email: 'mango@mail.com',
+//     list: 'friends',
+//   })
+// );
+// console.log(
+//   createContact({
+//     name: 'Poly',
+//     email: 'poly@hotmail.com',
+//   })
+// );
+
+// Нагугленный генератор рандомных чисел
+// function generateId() {
+//   return '_' + Math.random().toString(36).substr(2, 9);
+// }
+
+// * Задача 5 - Напиши функцию transformId(user) так, чтобы она возвращала новый объект со свойством fullName, вместо firstName и lastName.
+
+// Мой неправильный наркоманский варик 😭, но рабочий 😂
+
+// function transformId(user) {
+//   const fullName = user['firstName'] + ' ' + user['lastName'];
+//   delete user.firstName;
+//   delete user.lastName;
+//   return {
+//     fullName,
+//     ...user,
+//   };
+// }
+
+// Нормальный вариант здорового человека
+
+// function transformId({ firstName, lastName, ...otherParams }) {
+//   return {
+//     fullName: `${firstName} ${lastName}`,
+//     ...otherParams,
+//   };
+// }
+
+// console.log(
+//   transformId({
+//     id: 1,
+//     firstName: 'Jacob',
+//     lastName: 'Mercer',
+//     email: 'j.mercer@mail.com',
+//     friendCount: 40,
+//   })
+// );
+
+// console.log(
+//   transformId({
+//     id: 2,
+//     firstName: 'Adrian',
+//     lastName: 'Cross',
+//     email: 'a.cross@hotmail.com',
+//     friendCount: 20,
+//   })
+// );
