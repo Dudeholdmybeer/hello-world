@@ -941,3 +941,348 @@ const friends = [
 // }
 
 // console.log(calculateTotalPrice('Blaster'));
+
+// * Задача 21 - Пришел трёхдневный прогноз максимальных температур и мы считаем среднюю температуру за три дня (meanTemperature). Замени объявления переменных yesterday, today и tomorrow одной операцией деструктуризации свойств объекта highTemperatures.
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+
+// const { yesterday, today, tomorrow } = highTemperatures;
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+
+// console.log(meanTemperature);
+
+// * Задача 22 - В прогнозе максимальных температур также может быть необязательное свойство icon - иконка погоды. Замени объявления переменных yesterday, today, tomorrow и icon одной операцией деструктуризации свойств объекта highTemperatures. Задай значение по умолчанию для icon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+
+// const {
+//   yesterday,
+//   today,
+//   tomorrow,
+//   icon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+// } = highTemperatures;
+
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+// console.log(meanTemperature);
+
+// * Задача 23 - Замени объявления переменных highYesterday, highToday, highTomorrow и highIcon одной операцией деструктуризации свойств объекта highTemperatures. Задай значение по умолчанию для highIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+
+// const {
+//   yesterday: highYesterday,
+//   today: highToday,
+//   tomorrow: highTomorrow,
+//   icon: highIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+// } = highTemperatures;
+
+// const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+
+// console.log(meanTemperature);
+
+// * Задача 24 - Выполни рефакторинг цикла for...of так, чтобы в нём использовалась деструктуризация объекта..
+
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+
+// for (const { hex, rgb } of colors) {
+//   hexColors.push(hex);
+//   rgbColors.push(rgb);
+// }
+
+// console.log(hexColors);
+// console.log(rgbColors);
+
+// * Задача 25 - Мы получили прогноз погоды на два дня, с минимальными и максимальными температурами, а также необязательными иконками. Замени объявления всех переменных одной операцией деструктуризации свойств объекта forecast. Задай значение по умолчанию для иконок, переменных todayIcon и tomorrowIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+
+// const forecast = {
+//   today: {
+//     low: 28,
+//     high: 32,
+//     icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+//   },
+//   tomorrow: {
+//     low: 27,
+//     high: 31,
+//   },
+// };
+
+// const {
+//   today: {
+//     low: lowToday,
+//     high: highToday,
+//     icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+//   },
+//   tomorrow: {
+//     low: lowTomorrow,
+//     high: highTomorrow,
+//     icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+//   },
+// } = forecast;
+
+// * Задача 26 - Функция calculateMeanTemperature(forecast) принимает один параметр forecast - объект температур на два дня следующего формата. Замени объявления переменных todayLow, todayHigh, tomorrowLow и tomorrowHigh одной операцией деструктуризации свойств объекта forecast.
+
+// function calculateMeanTemperature(forecast) {
+//   const {
+//     today: { low: todayLow, high: todayHigh },
+//     tomorrow: { low: tomorrowLow, high: tomorrowHigh },
+//   } = forecast;
+
+//   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+// }
+
+// * Задача 27 - В переменной scores хранится массив результатов тестирования. Используя распыление и методы Math.max() и Math.min() дополни код так, чтобы в переменной bestScore был самый высокий балл, а в worstScore самый низкий.
+
+// const scores = [89, 64, 42, 17, 93, 51, 26];
+
+// const bestScore = Math.max(...scores);
+// const worstScore = Math.min(...scores);
+
+// console.log(bestScore);
+// console.log(worstScore);
+
+// * Задача 28 - В переменных firstGroupScores, secondGroupScores и thirdGroupScores хранятся результаты тестирования отдельных групп. Используя распыление дополни код так, чтобы: В переменной allScores хранился массив всех результатов от первой до третьей группы. В переменной bestScore был самый высокий общий балл. В переменной worstScore был самый низкий общий балл.
+
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
+
+// const allScores = [
+//   ...firstGroupScores,
+//   ...secondGroupScores,
+//   ...thirdGroupScores,
+// ];
+// const bestScore = Math.max(...allScores);
+// const worstScore = Math.min(...allScores);
+
+// * Задача 29 - В конструкторе можно создавать новые тесты, для которых есть настройки по умолчанию которые хранятся в переменной defaultSettings. Во время создания теста, все или часть настроек можно переопределить, они хранятся в переменной overrideSettings. Для того чтобы получить финальные настройки теста, необходимо взять настройки по умолчанию и поверх них применить переопределённые настройки. Дополни код так, чтобы в переменной finalSettings получился объект финальных настроек теста.
+
+// const defaultSettings = {
+//   theme: 'light',
+//   public: true,
+//   withPassword: false,
+//   minNumberOfQuestions: 10,
+//   timePerQuestion: 60,
+// };
+// const overrideSettings = {
+//   public: false,
+//   withPassword: true,
+//   timePerQuestion: 30,
+// };
+
+// const finalSettings = { ...defaultSettings, ...overrideSettings };
+
+// * Задача 30 - Напиши функцию makeTask(data) которая принимает один параметр data - объект со следующими свойствами. text - текст задачи. category - категория задачи. priority - приоритет задачи. Функция должна составить и вернуть новый объект задачи, не изменяя напрямую параметр data. В новом объекте должно быть свойство completed, значение которого хранится в одноимённой локальной переменной. В параметре data гарантированно будет только свойство text, а остальные два, category и priority, могут отсутствовать. Тогда, в новом объекте задачи, в свойствах category и priority должны быть значения по умолчанию, хранящиеся в одноимённых локальных переменных.
+
+// function makeTask(data) {
+//   const completed = false;
+//   const category = 'General';
+//   const priority = 'Normal';
+//   return { category, priority, ...data, completed };
+// }
+
+// console.log(
+//   makeTask({
+//     category: 'Homemade',
+//     priority: 'Low',
+//     text: 'Take out the trash',
+//   })
+// );
+
+// * Задача 31 - Используя операцию rest дополни код функции add() так, чтобы она принимала любое количество аргументов, считала и возвращала их сумму.
+
+// function add(...args) {
+//   let sum = 0;
+
+//   for (const arg of args) {
+//     sum += arg;
+//   }
+
+//   return sum;
+// }
+
+// * Задача 32 - Функция addOverNum() считает сумму всех аргументов. Измени параметры и тело функции addOverNum() так, чтобы она считала сумму только тех аргументов, которые больше чем заданное число. Это число должно быть первым параметром функции.
+
+// function addOverNum(number, ...args) {
+//   let total = 0;
+
+//   for (const arg of args) {
+//     if (arg > number) {
+//       total += arg;
+//     }
+//   }
+
+//   return total;
+// }
+
+// console.log(addOverNum(20, 74, 11, 62, 46, 12, 36));
+
+// * Задача 33 - Функция findMatches() принимает произвольное количество аргументов. Первым аргументом всегда будет массив чисел, а остальные аргументы будут просто числами. Дополни код функции так, чтобы она возвращала новый массив matches, в котором будут только те аргументы, начиная со второго, которые есть в массиве первого аргумента. Например, findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) должна вернуть массив [1, 2], потому что только они есть в массиве первого аргумента.
+
+// function findMatches(array, ...args) {
+//   const matches = [];
+
+//   for (const arg of args) {
+//     if (array.includes(arg)) {
+//       matches.push(arg);
+//     }
+//   }
+
+//   return matches;
+// }
+
+// console.log(findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41));
+
+// * Задача 34 - Добавь объекту bookShelf ещё два метода, которые пока что будут возвращать просто строки по аналогии с getBooks() и addBook(bookName). Метод removeBook(bookName) будет удалять книгу по имени. Возвращает строку "Deleting book <имя книги>", где <имя книги> это значение параметра bookName. Метод updateBook(oldName, newName) будет обновлять название книги на новое. Возвращает строку "Updating book <старое имя> to <новое имя>", где <старое имя> и <новое имя>это значения параметров oldName и newName соотвественно.
+
+// const bookShelf = {
+//   books: ['The last kingdom', 'The guardian of dreams'],
+//   getBooks() {
+//     return 'Returning all books';
+//   },
+//   addBook(bookName) {
+//     return `Adding book ${bookName}`;
+//   },
+//   removeBook(bookName) {
+//     return `Deleting book ${bookName}`;
+//   },
+//   updateBook(oldName, newName) {
+//     return `Updating book ${oldName} to ${newName}`;
+//   },
+// };
+
+// * Задача 35 - Дополни метод updateBook(oldName, newName) так, чтобы он изменял название книги с oldName на newName в свойстве books. Используй indexOf() для того, чтобы найти нужный элемент массива, и splice() для того чтобы заменить этот элемент
+
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     const indexOfBook = this.books.indexOf(oldName);
+//     this.books.splice(indexOfBook, 1, newName);
+//     return this.books;
+//   },
+// };
+
+// console.log(bookShelf.updateBook('The last kingdom', 'Dune'));
+
+// * Задача 36 - К нам обратилась владелица лавки зелий «У старой жабы» и заказала программу для ведения инвентаря - добавления, удаления, поиска и обновления зелий. Добавь объекту atTheOldToad свойство potions, значением которого сделай пустой массив.
+
+// const atTheOldToad = {
+//   potions: [],
+// };
+
+// * Задача 37 - Добавь объекту atTheOldToad метод getPotions(), который просто возвращает значение свойства potions.
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   getPotions() {
+//     return this.potions;
+//   },
+// };
+
+// * Задача 38 - Дополни метод addPotion(potionName) так, чтобы он добавлял зелье potionName в конец массива зелий в свойстве potions.
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   addPotion(potionName) {
+//     return this.potions.push(potionName);
+//   },
+// };
+
+// * Задача 39 - Дополни метод removePotion(potionName) так, чтобы он удалял зелье potionName из массива зелий в свойстве potions.
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   removePotion(potionName) {
+//     const indexOfElement = this.potions.indexOf(potionName);
+//     this.potions.splice(indexOfElement, 1);
+//     return this.potions;
+//   },
+// };
+
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+
+// * Задача 40 - Дополни метод updatePotionName(oldName, newName) так, чтобы он обновлял название зелья с oldName на newName, в массиве зелий в свойстве potions.
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   updatePotionName(oldName, newName) {
+//     const indexOfElement = this.potions.indexOf(oldName);
+//     this.potions.splice(indexOfElement, 1, newName);
+//     return this.potions;
+//   },
+// };
+
+// * Задача 41 - Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой, а в будущем может быть и другими характеристиками. Поэтому теперь в свойстве potions будет храниться массив объектов со следующими свойствами. Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом строк, а с массивом объектов.
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+
+  getPotions() {
+    return this.potions;
+  },
+
+  addPotion(newPotion) {
+    for (const potion of this.potions) {
+      if (potion.name.includes(newPotion.name)) {
+        return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
+    }
+    this.potions.push(newPotion);
+    return this.potions;
+  },
+
+  removePotion(potionName) {
+    for (const potion of this.potions) {
+      const potionIndex = this.potions.indexOf(potion);
+      if (potion.name === potionName) {
+        this.potions.splice(potionIndex, 1);
+        return this.potions;
+      }
+    }
+    return `Potion ${potionName} is not in inventory!`;
+  },
+
+  updatePotionName(oldName, newName) {
+    for (const potion of this.potions) {
+      if (potion.name === oldName) {
+        potion.name = newName;
+        return this.potions;
+      }
+    }
+    return `Potion ${oldName} is not in inventory!`;
+  },
+};
+
+console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
+
+// Для исходного объекта вызов `atTheOldToad.addPotion({ name: 'Stone skin', price: 240 })`, возвращает строку `'Error! Potion Stone skin is already in your inventory!'`.;
+
+console.log(atTheOldToad.getPotions());
+
+// getPotions() - метод для получения всех зелий. Возвращает значение свойства potions.
+// addPotion(newPotion) - добавляет зелье newPotion (уже объект) в массив в свойстве potions, но только если такого зелья еще нет в инвентаре. В противном случае возвращается строка.
+// removePotion(potionName) - удаляет объект зелья с именем potionName из массива в свойстве potions.
+// updatePotionName(oldName, newName) - обновляет свойство name объекта-зелья с названием oldName на newName в массиве potions.
