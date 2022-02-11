@@ -1305,3 +1305,224 @@ const users = [
 // const isAnyUserActive = users => users.some(user => user.isActive);
 
 // console.log(users);
+
+// * 34 - Игровому сервису необходим функционал подсчёта среднего времени проведённого в играх. Дополни код так, чтобы в переменной totalPlayTime получилось общее игровое время из массива playtimes.
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244,
+// };
+// const playtimes = Object.values(players);
+// console.log(playtimes);
+
+// const totalPlayTime = playtimes.reduce((total, number) => {
+//   return total + number;
+// }, 0);
+// console.log(totalPlayTime);
+
+// const averagePlayTime = totalPlayTime / playtimes.length;
+// console.log(averagePlayTime);
+
+// * 35 - Нашему сервису необходимо рассчитать среднее время проведённое в одной игре для каждого игрока, и получить общую сумму этих времён. Рассчитать время для каждого из игроков, можно разделив его время (свойство playtime) на количество игр (свойство gamesPlayed).
+
+// const players = [
+//   { name: 'Mango', playtime: 1270, gamesPlayed: 4 },
+//   { name: 'Poly', playtime: 469, gamesPlayed: 2 },
+//   { name: 'Ajax', playtime: 690, gamesPlayed: 3 },
+//   { name: 'Kiwi', playtime: 241, gamesPlayed: 1 },
+// ];
+
+// const totalAveragePlaytimePerGame = players.reduce(
+//   (total, player) => total + player.playtime / player.gamesPlayed,
+//   0
+// );
+
+// console.log(totalAveragePlaytimePerGame);
+
+// * 36 - Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех средств (свойство balance) которые хранят пользователи из массива users.
+
+// const calculateTotalBalance = users =>
+//   users.reduce((total, user) => total + user.balance, 0);
+
+// console.log(calculateTotalBalance(users));
+
+// * 37 - Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+
+// const getTotalFriendCount = users =>
+//   users.reduce((total, user) => total + user.friends.length, 0);
+
+// console.log(getTotalFriendCount(users));
+
+// * 38 - Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию копия массива releaseDates, а в переменной alphabeticalAuthors копия массива имён авторов authors отсортированная в по алфавиту.
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// const authors = [
+//   'Tanith Lee',
+//   'Bernard Cornwell',
+//   'Robert Sheckley',
+//   'Fyodor Dostoevsky',
+// ];
+
+// const ascendingReleaseDates = [...releaseDates].sort();
+// console.log(ascendingReleaseDates);
+
+// const alphabeticalAuthors = [...authors].sort();
+// console.log(alphabeticalAuthors);
+
+// * 39 - Онлайн бибилиотеке необходимо отображать книги сортированные по дате издания, по её возрастанию или убыванию. Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию копия массива releaseDates, а в переменной descendingReleaseDates копия отсортированная по убыванию.
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+// const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+// console.log(ascendingReleaseDates);
+
+// const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
+// console.log(descendingReleaseDates);
+
+// * 40 - Онлайн бибилиотеке необходимо отображать книги отсортированные по автору, в алфавитном и обратном алфавитном порядке. Дополни код так, чтобы в переменной authorsInAlphabetOrder получилась отсортированная по алфавиту копия массива authors, а в переменной authorsInReversedOrder копия отсортированная в обратном алфавитном порядке.
+
+// const authors = [
+//   'Tanith Lee',
+//   'Bernard Cornwell',
+//   'Robert Sheckley',
+//   'Fyodor Dostoevsky',
+//   'Howard Lovecraft',
+// ];
+
+// const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+// console.log(authorsInAlphabetOrder);
+
+// const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+// console.log(authorsInReversedOrder);
+
+// * 41 - Дополни код так, чтобы: В переменной sortedByAuthorName получился массив книг отсортированный по имени автора в алфавитном порядке. В переменной sortedByReversedAuthorName получился массив книг отсортированный по имени автора в обратном алфавитном порядке. В переменной sortedByAscendingRating получился массив книг отсортированный по возрастанию рейтинга. В переменной sortedByDescentingRating получился массив книг отсортированный по убыванию рейтинга.
+
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     rating: 8.38,
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     rating: 8.51,
+//   },
+//   {
+//     title: 'The Dream of a Ridiculous Man',
+//     author: 'Fyodor Dostoevsky',
+//     rating: 7.75,
+//   },
+//   { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+//   { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
+// ];
+
+// const sortedByAuthorName = [...books].sort((a, b) =>
+//   a.author.localeCompare(b.author)
+// );
+// console.table(sortedByAuthorName);
+
+// const sortedByReversedAuthorName = [...books].sort((a, b) =>
+//   b.author.localeCompare(a.author)
+// );
+// console.table(sortedByReversedAuthorName);
+
+// const sortedByAscendingRating = [...books].sort((a, b) => a.rating - b.rating);
+// console.table(sortedByAscendingRating);
+
+// const sortedByDescentingRating = [...books].sort((a, b) => b.rating - a.rating);
+// console.table(sortedByDescentingRating);
+
+// * 42 - Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей отсортированный по возрастанию их баланса (свойство balance).
+
+// const sortByAscendingBalance = users => [
+//   ...users.sort((a, b) => a.balance - b.balance),
+// ];
+
+// console.table(sortByAscendingBalance(users));
+
+// * 43 - Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей отсортированный по убыванию количества их друзей (свойство friends).
+
+// const sortByDescendingFriendCount = users =>
+//   [...users].sort((a, b) => b.friends.length - a.friends.length);
+
+// console.table(sortByDescendingFriendCount(users));
+
+// * 44 - Дополни функцию sortByName(users) так, чтобы она возвращала массив пользователей отсортированный по их имени (свойство name) в алфавитном порядке.
+
+// const sortByName = users =>
+//   [...users].sort((a, b) => a.name.localeCompare(b.name));
+
+// console.table(sortByName(users));
+
+// * 45 - Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
+
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     rating: 8.38,
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     rating: 8.51,
+//   },
+//   {
+//     title: 'The Dream of a Ridiculous Man',
+//     author: 'Fyodor Dostoevsky',
+//     rating: 7.75,
+//   },
+//   { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+//   {
+//     title: 'The Dreams in the Witch House',
+//     author: 'Howard Lovecraft',
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
+
+// const names = books
+//   .filter(book => book.rating >= MIN_BOOK_RATING)
+//   .map(book => book.author)
+//   .sort((a, b) => a.localeCompare(b));
+
+// console.table(names);
+
+// * 46 - Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей отсортированный по возрастанию количества их друзей (свойство friends).
+
+// const getNamesSortedByFriendCount = users =>
+//   [...users]
+//     .sort((a, b) => a.friends.length - b.friends.length)
+//     .map(user => user.name);
+
+// console.table(getNamesSortedByFriendCount(users));
+
+// * 47 - Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён друзей (свойство friends) отсортированный по алфавиту.
+
+// const getSortedFriends = users =>
+//   users
+//     .flatMap(user => user.friends)
+//     .filter((element, index, array) => array.indexOf(element) === index)
+//     .sort((a, b) => a.localeCompare(b));
+
+// console.log(getSortedFriends(users));
+
+// * 48 - Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс пользователей (свойство balance), пол которых (свойство gender) совпадает со значением параметра gender.
+
+// const getTotalBalanceByGender = (users, gender) => {
+//   if (gender === 'male') {
+//     return users
+//       .filter(user => user.gender === 'male')
+//       .reduce((total, user) => total + user.balance, 0);
+//   }
+//   if (gender === 'female') {
+//     return users
+//       .filter(user => user.gender === 'female')
+//       .reduce((total, user) => total + user.balance, 0);
+//   }
+// };
+
+// console.table(getTotalBalanceByGender(users, 'female'));
