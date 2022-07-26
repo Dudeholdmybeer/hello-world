@@ -348,69 +348,74 @@
 // const conceptCar = new Car();
 // console.log('conceptCar:', conceptCar);
 
-// Конструктор
+// ! Функция - Конструктор
 
-const Drink = function ({ name, colour, volume, price, bottle } = {}) {
-  // const { colour, volume, price } = properties;
-  this.name = name;
-  this.colour = colour;
-  this.volume = volume;
-  this.price = price;
-  this.bottle = bottle;
-};
+// const Drink = function ({ name, colour, volume, price, bottle } = {}) {
+//   // const { colour, volume, price } = properties;
+//   this.name = name;
+//   this.colour = colour;
+//   this.volume = volume;
+//   this.price = price;
+//   this.bottle = bottle;
+//   this.age = 18;
+// };
 
-// Статические методы
+// // Статические методы
 
-Drink.message =
-  'Я статическое свойство и доступно только на конструкторе и не доступно на прототипах';
+// Drink.message =
+//   'Я статическое свойство и доступно только на конструкторе и не доступно на прототипах';
 
-console.dir(Drink);
+// // console.dir(Drink);
 
-Drink.logInfo = function (object) {
-  console.log(object);
-};
+// Drink.logInfo = function (object) {
+//   console.log(object);
+// };
 
-// Методы на прототипе
+// // Методы на прототипе
 
-Drink.prototype.sayName = function () {
-  console.log(this.name);
-};
+// Drink.prototype.sayName = function () {
+//   console.log(this.name);
+// };
 
-Drink.prototype.sayPrice = function () {
-  console.log(this.price);
-};
+// Drink.prototype.sayPrice = function () {
+//   console.log(this.price);
+// };
 
-Drink.prototype.changePrice = function (newPrice) {
-  this.price = newPrice;
-  console.log(`New price of ${this.name} is ${this.price} UAH`);
-};
+// Drink.prototype.changePrice = function (newPrice) {
+//   this.price = newPrice;
+//   console.log(`New price of ${this.name} is ${this.price} UAH`);
+// };
 
-Drink.prototype.sayVolume = function () {
-  console.log(
-    `!!! Volume of alcohol in a ${this.name} is ${this.volume} % !!!`
-  );
-};
+// Drink.prototype.sayVolume = function () {
+//   console.log(
+//     `!!! Volume of alcohol in a ${this.name} is ${this.volume} % !!!`
+//   );
+// };
 
-Drink.prototype.changeColour = function (newColour) {
-  this.colour = newColour;
-  console.log(`New colour of ${this.name} is ${this.colour}`);
-};
+// Drink.prototype.changeColour = function (newColour) {
+//   this.colour = newColour;
+//   console.log(`New colour of ${this.name} is ${this.colour}`);
+// };
 
-// Экземпляры
+// // Экземпляры
 
-const beerDrink = new Drink({
-  name: 'beer',
-  colour: 'brown',
-  volume: 5,
-  price: 20,
-  bottle: 'aluminium',
-});
+// const beerDrink = new Drink({
+//   name: 'beer',
+//   colour: 'brown',
+//   volume: 5,
+//   price: 20,
+//   bottle: 'aluminium',
+// });
+
+// console.log(beerDrink);
+
+// beerDrink.sayPrice();
 
 // Пример использования статических методов на конструкторе
 
-Drink.logInfo(beerDrink);
-console.log(Object.keys(beerDrink));
-console.log(Object.values(beerDrink));
+// Drink.logInfo(beerDrink);
+// console.log(Object.keys(beerDrink));
+// console.log(Object.values(beerDrink));
 
 // console.log('beerDrink', beerDrink);
 // beerDrink.sayName();
@@ -441,3 +446,77 @@ console.log(Object.values(beerDrink));
 // console.log('whiskeyDrink', whiskeyDrink);
 // whiskeyDrink.changeColour('dark-brown');
 // console.log('whiskeyDrink', whiskeyDrink);
+
+// ! Классы - Реперта 5-2-2
+// Просто более современный синтаксис для создания функции конструктора. Единственный плюс это то что все храниться в одном месте
+
+class Inverter {
+  // Статические свойства и методы обьявляются в самом начале. Они нужны для того чтобы хранить константы и методы которые не нужны на экземпляре
+
+  static manufacturerName = 'fronius';
+  static logInfo(inverterModel) {
+    console.log(`logInfo ---> ${inverterModel.model}`, inverterModel);
+  }
+
+  #test = 'это приватное свойство';
+
+  constructor({
+    nominalPower,
+    price,
+    numberOfPhases,
+    stockBalance,
+    model,
+  } = {}) {
+    this.country = 'austria';
+    this.nominalPower = nominalPower;
+    this.model = model;
+    this._price = price;
+    this.numberOfPhases = numberOfPhases;
+    this.stockBalance = stockBalance;
+  }
+
+  // Методы прототипа находятся в самом классе
+
+  get price() {
+    return this._price;
+  }
+
+  set price(newPrice) {
+    this._price = newPrice;
+  }
+
+  updateStockBalance(newStockBalance) {
+    this.stockBalance = newStockBalance;
+  }
+}
+
+console.log(Inverter.manufacturerName);
+
+const symo10Inverter = new Inverter({
+  model: 'symo10',
+  nominalPower: 10000,
+  price: 2000,
+  numberOfPhases: 3,
+  stockBalance: 500,
+});
+
+Inverter.logInfo(symo10Inverter);
+
+const primo5Inverter = new Inverter({
+  model: 'primo5',
+  nominalPower: 5000,
+  price: 1000,
+  numberOfPhases: 1,
+  stockBalance: 200,
+});
+
+primo5Inverter.updateStockBalance(300);
+Inverter.logInfo(primo5Inverter);
+
+// Гетеры и сетеры
+
+console.log(primo5Inverter.model);
+primo5Inverter.price = 999;
+primo5Inverter.model = 'primo5.0';
+console.log(primo5Inverter.model);
+console.log(primo5Inverter.price);
